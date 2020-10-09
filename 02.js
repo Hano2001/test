@@ -16,9 +16,57 @@ Alla tecken som inte är a-z eller någon av ovanstående (t ex kommatecken, pun
 
 */
 
-function safe_string() {
+function safe_string(string) {
+  let newString = string.split("");
+  let string2 = [];
+  //string2 = newString.toString();
+  
+
+  for(let i = 0; i < newString.length; i++)
+  {
+      
+  }
+  //console.log(string2)
+  
+  for (let i = 0; i < newString.length; i++) {
+
+    
+    
+    if (newString[i] === '<') {
+        string2.push("&lt;");
+    }
+
+    if (newString[i] === '>'){
+        string2.push("&gt;");
+    }
+    if (newString[i] === "å"){
+        string2.push("&aring;")
+    }
+
+    if (newString[i] === "ä")
+    {
+        string2.push("&auml;");
+    }
+
+    if (newString[i] === "ö"){
+        string2.push("&ouml;")
+    }
+
+    else{
+        string2.push([i])
+        
+    }
 
 }
 
-console.log( safe_string( "<h1>Sjörövare, O'hoj</h1>" ) ); // Expected output: &lt;h1&gt;Sj&ouml;r&ouml;vare O&apos;hoj&lt;/h1&gt;
+   
+  let newString2 = string2.join("");
 
+  console.log(newString2);
+  
+
+}
+
+//console.log( safe_string( "<h1>Sjörövare, O'hoj</h1>" ) ); // Expected output: &lt;h1&gt;Sj&ouml;r&ouml;vare O&apos;hoj&lt;/h1&gt;
+
+safe_string("<h1>Sjörövare, O'hoj</h1>");
